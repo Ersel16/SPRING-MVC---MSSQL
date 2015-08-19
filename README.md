@@ -5,6 +5,6 @@ For ORM tool Hibernate is used.
 In my classes serialization interface is implemented.Serialization is implemented so there wouldn't be any mistakes when we transfer an object.
 
 #Reference
-*Spring Roo http://www.springsource.org/spring-roo
+*Spring Roo http://www.springsource.org/spring-roo                              
 *Tiles tutorial http://tiles.apache.org/framework/tutorial/index.html
 *Spring reference http://static.springsource.org/spring/docs/3.2.2.RELEASE/spring-framework-reference/
