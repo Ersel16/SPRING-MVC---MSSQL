@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt">
+
+<h:head></h:head>
+<body>
+
+	<ui:param name="ahmet" value="demirdoken"></ui:param>
+	<h:form id="form" prependId="true">
+		<p:growl autoUpdate="true" redisplay="true" showDetail="true" sticky="false" showSummary="true" id="messages"></p:growl>
+				<p:outputLabel value="ID"></p:outputLabel>
+				
+				<p:inputText value="#{kullaniciManagedBean.id}"></p:inputText>
+
+				<p:outputLabel value="AD"></p:outputLabel>
+				<p:inputText value="#{kullaniciManagedBean.ad}"></p:inputText>
+		
+				
+				<p:outputLabel value="SOYAD"></p:outputLabel>
+				<p:inputText value="#{kullaniciManagedBean.soyad}"></p:inputText>
+			<p:outputLabel value="TEL"></p:outputLabel>
+				<p:inputText value="#{kullaniciManagedBean.tel}"></p:inputText>
+			<p:outputLabel value="CAPTCHA GİRİŞ"></p:outputLabel>
+				<p:inputText value="#{kullaniciManagedBean.captchaEnter}"></p:inputText>
+		<p:outputLabel value="CAPTCHA    "></p:outputLabel>
+				<p:outputLabel value="#{kullaniciManagedBean.captcha}"></p:outputLabel>
+
+		
+				<p:commandButton value="Ekle"
+						action="#{kullaniciManagedBean.addKullaniciBean}"
+						update="form,tablo,messages"></p:commandButton>
+
+			
+				<p:dataTable value="#{kullaniciManagedBean.liste}"
+						var="data" emptyMessage="Veri yok..." id="tablo">
+						<p:column headerText="ID">
+							<p:outputLabel value="#{data.id}"></p:outputLabel>
+						</p:column>
+						<p:column headerText="AD">
+							<p:outputLabel value="#{data.ad}"></p:outputLabel>
+						</p:column>
+
+						<p:column headerText="SOYAD">
+							<p:outputLabel value="#{data.soyad}"></p:outputLabel>
+						</p:column>
+
+						<p:column headerText="TEL">
+							<p:outputLabel value="#{data.tel}"></p:outputLabel>
+						</p:column>
+
+						<p:column headerText="ISLEM">
+							<h:commandButton value="Sil"
+								action="#{kullaniciManagedBean.deleteKullanici(data)}" />
+						</p:column>
+
+						<p:column>
+							<p:commandButton value="Güncelle"
+								action="#{kullaniciManagedBean.popUpAc}"
+								actionListener="#{kullaniciManagedBean.handleKullanici(data)}"></p:commandButton>
+						</p:column>
+					</p:dataTable>
+
+
+
+
+
+	</h:form>
+
+</body>
+<ui:include src=""></ui:include>
+</html>
